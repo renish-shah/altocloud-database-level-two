@@ -7,7 +7,7 @@ import javax.persistence.Embeddable;
 import com.sun.org.apache.xpath.internal.operations.Equals;
 
 //@Embeddable
-public class Station_details_key implements Serializable {
+public class StationDetailsKey implements Serializable {
 
 	/**
 	 * 
@@ -41,7 +41,7 @@ public class Station_details_key implements Serializable {
         if (obj.getClass() != getClass())
             return false;
 
-        Station_details_key rhs = (Station_details_key) obj;
+        StationDetailsKey rhs = (StationDetailsKey) obj;
        if((rhs.stn==this.stn)&&(rhs.stn_name==this.stn_name))
           return true;
        else
