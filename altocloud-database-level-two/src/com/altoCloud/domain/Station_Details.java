@@ -1,21 +1,47 @@
-package data;
-import java.io.Serializable;
 
-
-import javax.persistence.Column;
+package com.altoCloud.domain;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "Station_Details")
+@IdClass(Station_details_key.class)
 public class Station_Details {
 
+//	@Id
+//	@GeneratedValue
+//	@Column(name = "STATION_ID")
+//	private long id;
+//	
+    @Id
+    private String stn;
+    @Id
+	private String stn_name;
+
 	
-	private String stn;
+
+	public String getStn() {
+		return stn;
+	}
+
+	public void setStn(String stn) {
+		this.stn = stn;
+	}
+
+	public String getStn_name() {
+		return stn_name;
+	}
+
+	public void setStn_name(String stn_name) {
+		this.stn_name = stn_name;
+	}
+
+	//private String stn;
 	private long other_id;
 	//@Column(nullable = false)
-	private String stn_name;
+//	private String stn_name;
 	//@Column(nullable = false)
 	private String state;
 	//@Column(nullable = false)
@@ -30,15 +56,15 @@ public class Station_Details {
 	private int mnet;
 	private String status;
 
-	@Id
-	@Column(name = "stn", updatable = false, nullable = false)
-	public String getStn() {
-		return stn;
-	}
-
-	public void setStn(String stn) {
-		this.stn = stn;
-	}
+//	@Id
+//	@Column(name = "stn", updatable = false, nullable = false)
+//	public String getStn() {
+//		return stn;
+//	}
+//
+//	public void setStn(String stn) {
+//		this.stn = stn;
+//	}
 
 	public long getOther_id() {
 		return other_id;
@@ -48,13 +74,13 @@ public class Station_Details {
 		this.other_id = other_id;
 	}
 
-	public String getStn_name() {
-		return stn_name;
-	}
-
-	public void setStn_name(String stn_name) {
-		this.stn_name = stn_name;
-	}
+//	public String getStn_name() {
+//		return stn_name;
+//	}
+//
+//	public void setStn_name(String stn_name) {
+//		this.stn_name = stn_name;
+//	}
 
 	public String getState() {
 		return state;
