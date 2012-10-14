@@ -9,13 +9,13 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 
-import com.altoCloud.common.HibernateUtil1;
+import com.altoCloud.common.HibernateUtil;
 import com.altoCloud.domain.StationDetailsExtra;
-import com.altoCloud.domain.StationDetailsExtra;
+
 
 public class StationDetailsExtraQuery {
 	public void add(StationDetailsExtra s_details) {
-		Session session = HibernateUtil1.getSessionFactory()
+		Session session = HibernateUtil.getSessionFactory()
 				.getCurrentSession();
 		Transaction transaction = null;
 		try {
@@ -30,7 +30,7 @@ public class StationDetailsExtraQuery {
 	}
 
 	public void remove(StationDetailsExtra item) {
-		Session session = HibernateUtil1.getSessionFactory()
+		Session session = HibernateUtil.getSessionFactory()
 				.getCurrentSession();
 		Transaction transaction = null;
 		try {
@@ -45,7 +45,7 @@ public class StationDetailsExtraQuery {
 	}
 
 	public StationDetailsExtra findById(String id) {
-		Session session = HibernateUtil1.getSessionFactory()
+		Session session = HibernateUtil.getSessionFactory()
 				.getCurrentSession();
 		StationDetailsExtra r = null;
 		try {
@@ -64,7 +64,7 @@ public class StationDetailsExtraQuery {
 	}
 
 	public List<StationDetailsExtra> getAllByMnetId(String id) {
-		Session session = HibernateUtil1.getSessionFactory()
+		Session session = HibernateUtil.getSessionFactory()
 				.getCurrentSession();
 		List<StationDetailsExtra> r = new ArrayList<StationDetailsExtra>();
 		try {
@@ -96,7 +96,7 @@ public class StationDetailsExtraQuery {
 		if (!validate(s_details) || s_details.getStn_details() == null)
 			throw new RuntimeException("Invalid person");
 
-		Session session = HibernateUtil1.getSessionFactory()
+		Session session = HibernateUtil.getSessionFactory()
 				.getCurrentSession();
 		try {
 			session.beginTransaction();

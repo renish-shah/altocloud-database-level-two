@@ -9,7 +9,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
-import com.altoCloud.common.HibernateUtil1;
+import com.altoCloud.common.HibernateUtil;
 import com.altoCloud.domain.Station_Details;
 
 public class StationDetailsQuery {
@@ -20,7 +20,7 @@ public class StationDetailsQuery {
 		// 2);
 
 		// Session session = locator.locate(s_details.getState());
-		Session session = HibernateUtil1.getSessionFactory()
+		Session session = HibernateUtil.getSessionFactory()
 				.getCurrentSession();
 		Transaction transaction = null;
 		try {
@@ -64,7 +64,7 @@ public class StationDetailsQuery {
 		// }
 		//
 		// return r;
-		Session session = HibernateUtil1.getSessionFactory()
+		Session session = HibernateUtil.getSessionFactory()
 				.getCurrentSession();
 		ArrayList<Station_Details> r = new ArrayList<Station_Details>();
 		try {
@@ -87,7 +87,7 @@ public class StationDetailsQuery {
 	}
 
 	public ArrayList<Station_Details> findById(String id) {
-		Session session = HibernateUtil1.getSessionFactory()
+		Session session = HibernateUtil.getSessionFactory()
 				.getCurrentSession();
 		ArrayList<Station_Details> r = new ArrayList<Station_Details>();
 		try {

@@ -10,13 +10,13 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
-import com.altoCloud.common.HibernateUtil1;
+import com.altoCloud.common.HibernateUtil;
 import com.altoCloud.domain.Weather;
 
 public class WeatherQuery {
 
 	public void add(Weather weather) {
-		Session session = HibernateUtil1.getSessionFactory()
+		Session session = HibernateUtil.getSessionFactory()
 				.getCurrentSession();
 		Transaction transaction = null;
 		try {
@@ -31,7 +31,7 @@ public class WeatherQuery {
 	}
 
 	public void remove(Weather item) {
-		Session session = HibernateUtil1.getSessionFactory()
+		Session session = HibernateUtil.getSessionFactory()
 				.getCurrentSession();
 		Transaction transaction = null;
 		try {
@@ -51,7 +51,7 @@ public class WeatherQuery {
 	}
 
 	public List<Weather> getAllByStationId(Weather template) {
-		Session session = HibernateUtil1.getSessionFactory()
+		Session session = HibernateUtil.getSessionFactory()
 				.getCurrentSession();
 		ArrayList<Weather> r = new ArrayList<Weather>();
 		try {
@@ -72,7 +72,7 @@ public class WeatherQuery {
 	}
 
 	public List<Weather> getAllByMnetId(int mnet) {
-		Session session = HibernateUtil1.getSessionFactory()
+		Session session = HibernateUtil.getSessionFactory()
 				.getCurrentSession();
 		List<Weather> r = new ArrayList<Weather>();
 		try {
@@ -92,7 +92,7 @@ public class WeatherQuery {
 	}
 
 	public List<Weather> getAllByState(String state) {
-		Session session = HibernateUtil1.getSessionFactory()
+		Session session = HibernateUtil.getSessionFactory()
 				.getCurrentSession();
 		ArrayList<Object> r = new ArrayList<Object>();
 		List<Weather> res = new ArrayList<Weather>();
@@ -138,7 +138,7 @@ public class WeatherQuery {
 	}
 
 	public Weather findById(long id) {
-		Session session = HibernateUtil1.getSessionFactory()
+		Session session = HibernateUtil.getSessionFactory()
 				.getCurrentSession();
 		Weather r = null;
 		try {
@@ -167,7 +167,7 @@ public class WeatherQuery {
 		if (!validate(weather) || weather.getId() == -1)
 			throw new RuntimeException("Invalid person");
 
-		Session session = HibernateUtil1.getSessionFactory()
+		Session session = HibernateUtil.getSessionFactory()
 				.getCurrentSession();
 		try {
 			session.beginTransaction();
