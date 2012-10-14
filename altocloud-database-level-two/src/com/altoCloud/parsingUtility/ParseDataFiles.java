@@ -20,7 +20,7 @@ import com.altoCloud.dbQuery.StationDetailsQuery;
 import com.altoCloud.dbQuery.WeatherQuery;
 import com.altoCloud.domain.StationDetailsExtra;
 import com.altoCloud.domain.Station_Details;
-import com.altoCloud.domain.Station_details_key;
+import com.altoCloud.domain.StationDetailsKey;
 import com.altoCloud.domain.Weather;
 //import com.altoCloud.domain.level3.StationDetailsExtra;
 
@@ -131,7 +131,7 @@ public class ParseDataFiles {
 						// if(station_Details==null){
 						System.out.println("Station not present");
 						station_Details.setOther_id(9999999);
-						Station_details_key key1 = new Station_details_key();
+						StationDetailsKey key1 = new StationDetailsKey();
 						key1.setStn(data[0]);
 						key1.setStn_name(data[2]);
 						station_Details.setStn(data[0]);
