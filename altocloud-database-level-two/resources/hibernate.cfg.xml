@@ -10,9 +10,13 @@
 
 		<!-- Database connection settings -->
 		<property name="connection.driver_class">org.postgresql.Driver</property>
-		<property name="connection.url">jdbc:postgresql://localhost:5432/weather</property>
-		<property name="connection.username">postgres</property>
-		<property name="connection.password">admin</property>
+		<property name="connection.url">jdbc:postgresql://localhost:5432/pplann</property>
+		<property name="connection.username">gash</property>
+		<property name="connection.password">gash</property>
+		
+		<!-- Setting hibernate.jdbc.batch_size as 50 -->
+		
+		   <property name="hibernate.jdbc.batch_size">50</property>
 
 		<!-- JDBC connection pool (use the built-in) -->
 		<property name="connection.pool_size">1</property>
@@ -30,19 +34,13 @@
 		<property name="current_session_context_class">thread</property>
 
 		<!-- Drop and re-create the database schema on startup -->
-		<property name="hbm2ddl.auto">create-drop</property>
-		<!-- <property name="hbm2ddl.auto">update</property> -->
+		<property name="hbm2ddl.auto">update</property>
 
-<!-- 		<mapping class="data.Station_Details" /> -->
-<!-- 		<mapping class="data.Station_Details_extra" /> -->
-<!-- 		<mapping class="data.Weather" />  -->
-		<!-- <mapping class="com.altoCloud.domain.MesowestTblStationInfo" /> -->
-		<!--  <mapping class="com.altoCloud.domain.level3.StationDetails" />
-		<mapping class="com.altoCloud.domain.level3.StationDetailsExtra" />-->
-		<mapping class="com.altoCloud.domain.level3.Weather" />
-		<mapping class="com.altoCloud.domain.level3.NetworkDetails" />
-		<mapping class="com.altoCloud.domain.level3.ProviderDetails" />
-		<mapping class="com.altoCloud.domain.level3.StationStatus" />
+		<!-- <mapping class="com.altoCloud.domain.Station_Details" />--> 
+		 <mapping class="com.altoCloud.domain.StationDetailsExtra" />
+		 <mapping class="com.altoCloud.domain.Weather" /> 
+		 <mapping class="com.altoCloud.domain.Station_Details" />
+
 
 		<!-- <mapping resource="weather.hbm.xml"/> -->
 	</session-factory>
