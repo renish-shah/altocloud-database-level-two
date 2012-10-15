@@ -29,7 +29,6 @@ public class Weather implements Serializable{
 	//@JoinColumn(name="stn")
 	private Station_Details stn_id;
 	private Timestamp date;
-	private Time time;
 	@Column(nullable = true)
 	private double TMPF;
 	@Column(nullable = true)
@@ -81,14 +80,6 @@ public class Weather implements Serializable{
 		this.date = date;
 	}
     
-	public Time getTime() {
-		return time;
-	}
-
-	public void setTime(Time time) {
-		this.time = time;
-	}
-
 	public double getTMPF() {
 		return TMPF;
 	}
