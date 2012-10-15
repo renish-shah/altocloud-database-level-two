@@ -14,13 +14,18 @@ import com.altoCloud.common.HibernateUtil;
 import com.altoCloud.domain.Weather;
 
 public class WeatherQuery {
-
+	static int countWeather=0;
+	
 	public void add(Weather weather) {
 		Session session = HibernateUtil.getSessionFactory()
 				.getCurrentSession();
 		Transaction transaction = null;
 		try {
 			transaction = session.beginTransaction();
+			if(++countWeather %50 == 0){
+				session.flush();
+				session.close();
+			}
 			session.save(weather);
 			transaction.commit();
 		} catch (HibernateException e) {
