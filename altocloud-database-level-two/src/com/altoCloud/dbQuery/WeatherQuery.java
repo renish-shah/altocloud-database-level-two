@@ -123,22 +123,35 @@ public class WeatherQuery {
 	}
 
 	public double findAverageTempByState(String state, int month) {
-		ArrayList<Weather> weather = new ArrayList<Weather>();
-		weather = (ArrayList<Weather>) getAllByState(state);
-		int size = weather.size();
-		double avg = 0;
-		for (int i = 0; i < size; i++) {
-			Weather obj = weather.get(i);
-			if (obj.getDate() != null) {
-				System.out.println("data" + obj.getDate().getMonth());
-				if (obj.getDate().getMonth() == month - 1) {
-					if (weather.get(i).getTMPF() != -9999.00)
-						avg += weather.get(i).getTMPF();
-				}
+		Session session = HibernateUtil.getSessionFactory()
+				.getCurrentSession();
+		//ArrayList<Object> r = new ArrayList<Object>();
+		double avg=0;
+		List<Double> res = new ArrayList<Double>();
+		try {
+			session.beginTransaction();
+			Query query = session
+					.createQuery(" Select w.TMPF FROM Weather as w join w.stn_id as s WHERE s.state=:type");
+			query.setString("type", state);
+			res = (ArrayList<Double>) query.list();
 
-			}
+			// System.out.println(r.get(0).getId());
+			session.getTransaction().commit();
+		} catch (HibernateException e) {
+			session.getTransaction().rollback();
+			e.printStackTrace();
 		}
-		return avg / size;
+		int size=res.size();
+		int tempsize=size;;
+		for (int i = 0; i < size; i++) {
+			double temp = res.get(i);
+			if(temp!= -9999.00){
+				avg+=temp;
+			}
+			else
+				tempsize=tempsize-1;
+		}
+		return avg/tempsize;
 
 	}
 
