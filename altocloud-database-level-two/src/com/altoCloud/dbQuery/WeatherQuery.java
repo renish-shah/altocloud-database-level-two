@@ -217,7 +217,7 @@ public class WeatherQuery {
 
 	public void updateTable(Weather weather) {
 		if (!validate(weather) || weather.getId() == -1)
-			throw new RuntimeException("Invalid person");
+			throw new RuntimeException("Invalid weather");
 
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		try {
