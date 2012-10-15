@@ -13,13 +13,23 @@ import com.altoCloud.common.HibernateUtil;
 import com.altoCloud.domain.StationDetailsExtra;
 
 
+
+
 public class StationDetailsExtraQuery {
+	
+	static int countStationDetailExtra = 0;
+	
 	public void add(StationDetailsExtra s_details) {
 		Session session = HibernateUtil.getSessionFactory()
 				.getCurrentSession();
 		Transaction transaction = null;
+		
 		try {
 			transaction = session.beginTransaction();
+			if(++countStationDetailExtra %50 == 0){
+				session.flush();
+				session.close();
+			}
 			session.saveOrUpdate(s_details);
 			transaction.commit();
 		} catch (HibernateException e) {
