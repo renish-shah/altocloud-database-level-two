@@ -38,15 +38,17 @@ public class ParseDataFiles {
 	public static void main(String[] args) throws ParseException {
 
 		// new ParseDataFiles().parseWeatherDataFile();
-		// new ParseDataFiles().parseMesowestTblFile();
-		//new ParseDataFiles().parseMesowestCSVTblFile();
-		// new ParseDataFiles().parseWeatherDataFile();
+		 new ParseDataFiles().parseMesowestTblFile();
+		new ParseDataFiles().parseMesowestCSVTblFile();
+		 new ParseDataFiles().parseWeatherDataFile();
 		WeatherQuery wr= new WeatherQuery();
+		System.out.println(wr.findAverageTempByState("UT", 10));
+		System.out.println(wr.findHottestState(10));
 		
-		double tmp= wr.findAverageTempByState("UT", 10);
-		 System.out.println(tmp);
-		 List<Weather> data=wr.getAllByMnetId(8);
-		 System.out.println(data.size());
+//		double tmp= wr.findAverageTempByState("UT", 10);
+//		 System.out.println(tmp);
+//		 List<Weather> data=wr.getAllByMnetId(8);
+//		 System.out.println(data.size());
 		 
 		 
 		// ArrayList<Station_Details> sd= new ArrayList<Station_Details>();
@@ -129,6 +131,7 @@ public class ParseDataFiles {
 					} else if (stationlist.size() == 0) {
 						//station_Details = sq.findByKey(data[0], data[2]);
 						// if(station_Details==null){
+						
 						System.out.println("Station not present");
 						station_Details.setOther_id(9999999);
 						StationDetailsKey key1 = new StationDetailsKey();
