@@ -20,6 +20,7 @@ public class StationDetailsQuery {
 		// 2);
 
 		// Session session = locator.locate(s_details.getState());
+		System.out.println("station details query called");
 		Session session = HibernateUtil.getSessionFactory()
 				.getCurrentSession();
 		Transaction transaction = null;
@@ -105,6 +106,28 @@ public class StationDetailsQuery {
 		// System.out.println("find by stn id"
 		// + r.get(0).getStn_id().getStn_name());
 		return r;
+	}
+	public Station_Details findByIdInsert(String id,double latitude, double longitude) {
+		Session session = HibernateUtil.getSessionFactory()
+				.getCurrentSession();
+		ArrayList<Station_Details> r = new ArrayList<Station_Details>();
+		try {
+			session.beginTransaction();
+			org.hibernate.Criteria c = session
+					.createCriteria(Station_Details.class);
+
+			c.add(Restrictions.eq("stn", id));
+			c.add(Restrictions.eq("lat",latitude));
+			c.add(Restrictions.eq("lon",longitude));
+			r = (ArrayList<Station_Details>) c.list();
+			session.getTransaction().commit();
+		} catch (HibernateException e) {
+			session.getTransaction().rollback();
+			e.printStackTrace();
+		}
+		// System.out.println("find by stn id"
+		// + r.get(0).getStn_id().getStn_name());
+		return r.get(0);
 	}
 
 }

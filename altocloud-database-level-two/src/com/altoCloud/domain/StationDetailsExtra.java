@@ -20,7 +20,7 @@ public class StationDetailsExtra implements Serializable{
 	@Id
 	@OneToOne(cascade = CascadeType.ALL)
 	private Station_Details stn_details;
-	private String secondary_id;
+	
 	/*
 	 * @Column(nullable = false) private String stn_name;
 	 * 
@@ -37,7 +37,7 @@ public class StationDetailsExtra implements Serializable{
 	 * @Column(nullable = false) private int mnet;
 	 */
 	
-	private String network_name;
+	
 	@Column(nullable = true)
 	private int primary_provider_id;
 	@Column(nullable = true)
@@ -60,14 +60,6 @@ public class StationDetailsExtra implements Serializable{
 //	 public void setStn(String stn) {
 //	 this.stn = stn;
 //	 }
-
-	public String getSecondary_id() {
-		return secondary_id;
-	}
-
-	public void setSecondary_id(String secondary_id) {
-		this.secondary_id = secondary_id;
-	}
 
 	// public String getStn_name() {
 	// return stn_name;
@@ -124,15 +116,8 @@ public class StationDetailsExtra implements Serializable{
 	// public void setMnet(int mnet) {
 	// this.mnet = mnet;
 	// }
-	@Column(nullable = false)
-	public String getNetwork_name() {
-		return network_name;
-	}
-
-	public void setNetwork_name(String network_name) {
-		this.network_name = network_name;
-	}
-	@Column(nullable = false)
+	
+	
 	public int getPrimary_provider_id() {
 		return primary_provider_id;
 	}
@@ -140,7 +125,7 @@ public class StationDetailsExtra implements Serializable{
 	public void setPrimary_provider_id(int primary_provider_id) {
 		this.primary_provider_id = primary_provider_id;
 	}
-	@Column(nullable = false)
+	
 	public String getPrimary_provider() {
 		return primary_provider;
 	}

@@ -1,5 +1,6 @@
 
 package com.altoCloud.domain;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
@@ -39,23 +40,22 @@ public class Station_Details {
 	}
 
 	//private String stn;
-	private long other_id;
+	private String secondary_id;
 	//@Column(nullable = false)
 //	private String stn_name;
-	//@Column(nullable = false)
+	@Column(nullable = true)
 	private String state;
-	//@Column(nullable = false)
+	@Column(nullable = true)
 	private String country;
-	//@Column(nullable = false)
+	@Column(nullable = true)
 	private double lat;
-	//@Column(nullable = false)
+	@Column(nullable = true)
 	private double lon;
-	//@Column(nullable = false)
+	@Column(nullable = true)
 	private double elev;
-	//@Column(nullable = false)
+	@Column(nullable = true)
 	private int mnet;
-	private String status;
-
+	private String network_name;
 //	@Id
 //	@Column(name = "stn", updatable = false, nullable = false)
 //	public String getStn() {
@@ -65,14 +65,6 @@ public class Station_Details {
 //	public void setStn(String stn) {
 //		this.stn = stn;
 //	}
-
-	public long getOther_id() {
-		return other_id;
-	}
-
-	public void setOther_id(long other_id) {
-		this.other_id = other_id;
-	}
 
 //	public String getStn_name() {
 //		return stn_name;
@@ -130,12 +122,21 @@ public class Station_Details {
 		this.mnet = mnet;
 	}
 
-	public String getStatus() {
-		return status;
+
+	public String getNetwork_name() {
+		return network_name;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setNetwork_name(String network_name) {
+		this.network_name = network_name;
+	}
+
+	public String getSecondary_id() {
+		return secondary_id;
+	}
+
+	public void setSecondary_id(String secondary_id) {
+		this.secondary_id = secondary_id;
 	}
 
 }

@@ -26,10 +26,7 @@ public class StationDetailsExtraQuery {
 		
 		try {
 			transaction = session.beginTransaction();
-			if(++countStationDetailExtra %50 == 0){
-				session.flush();
-				session.close();
-			}
+			
 			session.saveOrUpdate(s_details);
 			transaction.commit();
 		} catch (HibernateException e) {
